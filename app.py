@@ -1,25 +1,31 @@
 import streamlit as st
-from data import tampil_data, statistik_data, total_kasus, copyright_footer
+from data import *
 
+# Fungsi judul halaman
 def judul():
-    st.title("📊 Dashboard COVID-19")
-    st.write(
-        "Selamat datang di dashboard interaktif untuk menganalisis data COVID-19. "
-        "Anda dapat melihat data terbaru mengenai kasus COVID-19."
-    )
+    st.title("🔴 Dashboard Covid-19 Indonesia")
+    st.markdown("Selamat datang di dashboard interaktif untuk menganalisis data Covid-19 di Indonesia 🔴⚪")
 
-# Sidebar
-st.sidebar.title("Navigasi")
+# Sidebar navigasi
+st.sidebar.title("🏙️ Navigasi")
 menu = st.sidebar.radio("Pilih Halaman", ["Home", "Halaman Data"])
 
-# Routing halaman
+# Halaman HOME
 if menu == "Home":
     judul()
-    copyright_footer()
+    # Pilih tahun
+    year = select_year()
+    # Load & filter data
+    df = load_data()
+    df_filtered = filter_data(df, year)
+    kolom(df_filtered)
+    pie_chart1(df_filtered)
 
+# Halaman Halaman Data
 elif menu == "Halaman Data":
     judul()
-    total_kasus()
-    tampil_data()
-    statistik_data()
-    copyright_footer()
+    year = select_year()
+    # Load & filter data
+    df = load_data()
+    df_filtered = filter_data(df, year)
+    show_data(df_filtered)
