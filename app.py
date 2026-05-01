@@ -29,3 +29,5 @@ elif menu == "Halaman Data":
     df = load_data()
     df_filtered = filter_data(df, year)
     show_data(df_filtered)
+
+    
