@@ -90,3 +90,24 @@ elif menu == "Halaman Data":
 
     # Show data
     show_data(df_filtered)
+    
+    # Show data
+show_data(df_filtered)
+
+# =========================
+# FOOTER
+# =========================
+st.markdown("---")
+
+st.markdown(
+    """
+    <div style='text-align: center; padding: 10px;'>
+        <h4>📊 Dashboard Covid-19 Indonesia</h4>
+        <p>
+            Dibuat oleh <b>Farrel Vega Athallah</b><br>
+            NPM: <b>184240005</b>
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
